@@ -1,6 +1,5 @@
 #!/usr/bin/gnuplot -persist
 set terminal png nocrop font small size 1280,720
-set output '/var/www/temp.png'
 set autoscale
 #set yrange [18:26]
 set grid ytics
@@ -15,5 +14,10 @@ set xtics autofreq
 set title "Temperatures (C)"
 set ylabel "Temp"
 set xlabel "Tid"
-#plot "/root/templog.csv" using 1:2 with points notitle, "/root/templog.csv" using 1:2 notitle smooth csplines
-plot "/root/templog.csv" using 1:2 with points pointtype 7 pointsize 1 linetype 3 notitle, "/root/templog.csv" using 1:2 smooth csplines title "Livingroom",  "/root/outsidetemp.csv" using 1:2 smooth csplines linetype 9 title "Outside"
+#
+# Plot Livingroom graph
+set output '/var/www/livingroom.png'
+plot "/root/templog.csv" using 1:2 with points pointtype 7 pointsize 1 linetype 3 notitle, "/root/templog.csv" using 1:2 smooth csplines title "Livingroom"
+# Plot Outside temp graph
+set output '/var/www/outside.png'
+plot "/root/outsidetemp.csv" using 1:2 with dots notitle, "/root/outsidetemp.csv" using 1:2 smooth csplines linetype 9 title "Outside"
