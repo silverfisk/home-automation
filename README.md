@@ -2,7 +2,7 @@ home-automation
 ===============
 
 
-Using OCR to read displays
+Using OCR to read displays with readLCD.sh
 ---------------------------
 
 I'm using an old Android phone as a web cam with the free app "IP Webcam" to read the display of my boiler.
@@ -19,12 +19,4 @@ SSOCR
  make
  sudo make install
 
-* Change your web cam url in readLCD.sh to download the photo of the display
-
-* To figure out the cropping geometry for ImageMagick you need to use you need to edit readLCD.sh:
- - Open the downloaded web cam picture to your desktop and open it with Gimp.
- - Use 'Rectangle Select' tool and select your LCD display. Now you have the geometry. I fill in my values below so you know what is what
-  - Position: 1357, 324
-  - Size: 74, 105
- - See doc/gimp_screenshot1.png for a visual explanation of what I explained above
-
+* Read in doc/README-readLCD.txt on how to set cropping, rotation and such.
